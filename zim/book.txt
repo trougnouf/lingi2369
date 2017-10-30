@@ -81,3 +81,21 @@ The set of primitives must contain necessary functions, otherwise the resulting 
 We may model real-life design problems using components (such as resistors, capacitors, ... in analog circuits) as the function set and the design's various outputs as terminal sets
 
 ==== 3.3 Step 3: Fitness Function ====
+The fitness function is what directs the program population in the right direction. It is typically a score based on one or more of the following: accuracy, error-rate, run-time, efficiency.
+An interpreter is commonly used to run the programs (syntax trees) with multiple inputs.
+
+==== 3.4 Step 4: GP Parameters ====
+Some important parameters include the population size, probability of performing a genetic operation, and the maximum program size.
+There are no universally optimal parameters, but many different parameters will typically work.
+Population size is typically limited by run-time (not memory).
+Optimal/useful results are typically found within 10-50 generations
+
+==== 3.5 Step 5: Termination and solution designaton ====
+Breeding stops when a preset maximum number of generations has been reached, or a satisfying solution has been found.
+Typically the single healthiest individual is returned, but some use-cases may require multiple solutions.
+
+===== Chapter 4: Example Genetic Programming Run =====
+The goal of this example run is to "evolve an expression whose values match those of the quadratic polynomial x^{2}+x+1 in the range [-1, +1]
+
+==== 4.1 Preparatory Steps ====
+The terminal set includes the variable x, some random constants in [-5, 5]
