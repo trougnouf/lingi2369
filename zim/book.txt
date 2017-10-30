@@ -1,0 +1,83 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2017-10-17T13:29:46+02:00
+
+====== book ======
+Created Tuesday 17 October 2017
+
+2017-10-17: ch1 35min
+10/18: ch2 45 min
+
+
+====== Part I: Basics ======
+
+===== Chapter 1: Introduction =====
+
+Crossover: randomly combine selected parents
+Mutation: randomly alter selected program
+
+{{{code: lang="python" linenumbers="True"
+Randomly create initial population of programs from the available primitives
+repeat:
+	Execute each program and ascertain its fitness
+	Select one or two+ program(s)from the population with a probability based on fitness to participate in genetic operations
+	Create new individual program(s) by applying genetic operations with specific probabilities
+until an acceptable solution is found or some other stopping condition is met (eg: a max number of generations is reached)
+return the best-so-far individual
+}}}
+
+
+===== Chapter 2: Representation, Initialisation and Operators in Tree-based GP =====
+
+==== 2.1: Representation ====
+GP programs are represented as syntax trees (often represented as linear sequences to increase performance)
+
+==== 2.2: Initialising the Population ====
+
+=== - full: ===
+create a full tree taking random nodes from the functions set until maxdepth is reached, then fill leaves with values
+cons: uniform trees
+
+=== - grow: ===
+nodes are selected from both primitives and terminals, therefore a branch can be shorter than maxdepth
+cons: tree shape is dependent on ratio of functions/values. too many values = shorter tree.
+
+=== - ramped half and half: ===
+use a range of depth limit to generate a tree with various sizes and shapes
+
+==== 2.3: Selection ====
+- tournaments between two random invididuals determine each of the two parents: no sudden change in genetic makeup / diversity
+- several other methods including fitness-proportionate selection, stochastic universal sampling, etc
+
+==== 2.4: Recombination and Mutation ====
+- GP uses subtree crossover: select a crossover point (node) in each parent, create a copy of first parent and replace post-crossover point subtree by that of the second parent
+- Multiple possible offsprings for the same parents pair
+- To avoid exchanging too small amount of information, we may force the crossover point to be a function rather than a leave most of the time.
+- Mutation: can apply small mutation probability to each node
+When crossover and mutation < 100%, we use reproduction to insert copies of current individuals to make up the whole generation.
+
+===== Chapter 3: Getting Ready to Run Genetic Programming =====
+
+==== 3.1: Step 1: Terminal Set ====
+- The program's external inputs (named variables)
+- Functions with no arguments (eg: random, position, func w/ side effects)
+- Constants (pre-specified, randomly generated w/ tree creation, through mutation)
+
+==== 3.2: Step 2: Function Set ====
+examples: Arithmetic (+,-,*,/), Mathematical (sin, cos, exp), Boolean (and, or, not), Conditional (if-then-else), Looping (for, repeat)
+
+=== 3.2.1: Closure ===
+Type consistency is required to mix and join nodes arbitrarily
+Solutions:
+* type consistency
+* automatic type conversion
+* require replacement subtrees to have matching type
+Errors must either be caught (with a penalty) or inputs must be sanitized appropriately
+
+=== 3.2.2 Sufficiency ===
+The set of primitives must contain necessary functions, otherwise the resulting function can only be an approximation of the correct solution.
+
+=== 3.2.3 Evolving structures other than programs ===
+We may model real-life design problems using components (such as resistors, capacitors, ... in analog circuits) as the function set and the design's various outputs as terminal sets
+
+==== 3.3 Step 3: Fitness Function ====
