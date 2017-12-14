@@ -1,0 +1,16 @@
+always:
+
+MABE -p BRAIN-brainType Markov WORLD-worldType NumeralClassifier
+
+
+MABE -p GLOBAL-outputDirectory t1 BRAIN-brainType Markov WORLD-worldType NumeralClassifier WORLD_NUMERALCLASSIFIER-WorldUpdates 40 BRAIN_MARKOV_GATES_NEURON-allow 1 BRAIN_MARKOV-hiddenNodes 28 GENOME_CIRCULAR-mutationCopyRate 0.05 GENOME_CIRCULAR-mutationDeleteRate 0.02 GENOME_CIRCULAR-mutationPointRate 0.0005 GLOBAL-updates 250000 BRAIN_MARKOV_GATES_NEURON-numInputsMax 9
+
+MABE -p GLOBAL-outputDirectory t2 BRAIN-brainType CGP WORLD-worldType NumeralClassifier GLOBAL-updates 250000
+
+MABE -p GLOBAL-outputDirectory t3 BRAIN-brainType Markov WORLD-worldType NumeralClassifier WORLD_NUMERALCLASSIFIER-WorldUpdates 40 BRAIN_MARKOV_GATES_NEURON-allow 1 BRAIN_MARKOV-hiddenNodes 28 GENOME_CIRCULAR-mutationCopyRate 0.05 GENOME_CIRCULAR-mutationDeleteRate 0.02 GENOME_CIRCULAR-mutationPointRate 0.0005 GLOBAL-updates 250000 BRAIN_MARKOV_GATES_NEURON-numInputsMax 9 BRAIN_MARKOV_GATES_DETERMINISTIC-allow 0
+
+MABE -p GLOBAL-outputDirectory t4 BRAIN-brainType Markov WORLD-worldType NumeralClassifier WORLD_NUMERALCLASSIFIER-WorldUpdates 40 BRAIN_MARKOV-hiddenNodes 28 GENOME_CIRCULAR-mutationCopyRate 0.05 GENOME_CIRCULAR-mutationDeleteRate 0.02 GENOME_CIRCULAR-mutationPointRate 0.0005 GLOBAL-updates 250000 BRAIN_MARKOV_GATES_DETERMINISTIC-allow 0 BRAIN_MARKOV_GATES_GENETICPROGRAMING-allow 1
+
+MABE -p GLOBAL-outputDirectory t5 BRAIN-brainType Markov WORLD-worldType NumeralClassifier WORLD_NUMERALCLASSIFIER-WorldUpdates 40 BRAIN_MARKOV-hiddenNodes 28 GENOME_CIRCULAR-mutationCopyRate 0.05 GENOME_CIRCULAR-mutationDeleteRate 0.02 GENOME_CIRCULAR-mutationPointRate 0.0005 GLOBAL-updates 250000 BRAIN_MARKOV_GATES_GENETICPROGRAMING-allow 1
+
+MABE -p BRAIN-brainType Markov WORLD-worldType NumeralClassifier GLOBAL-updates 250000 BRAIN_MARKOV_GATES_DETERMINISTIC-initialCount 100 GENOME_CIRCULAR-mutationCopyRate 0.05 GENOME_CIRCULAR-mutationDeleteRate 0.05 GENOME_CIRCULAR-mutationPointRate 0.001 WORLD_NUMERALCLASSIFIER-retinaType 5 GLOBAL-outputDirectory t6

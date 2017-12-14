@@ -1,0 +1,44 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2017-11-13T13:54:25+01:00
+
+====== MarkovBrains ======
+Created Monday 13 November 2017
+
+===== Presentation =====
+
+==== introduce Mr Thompson's research ====
+In 1996 Dr Thompson used genetic algorithms to program a FPGA to recognize sounds ...
+
+
+===== Markov Brains =====
+Markov Brains are a class of evolvable artificial neural networks.
+structure encoded in genome
+
+state buffer <- hidden, input, and output states
+
+updates happen in parallel
+
+one world update can contain many brain updates
+
+==== Gates: ====
+
+=== Deterministic Logic ===
+
+=== Probabilistic Logic ===
+
+=== ANN Gate ===
+
+=== Threshold Gate ===
+
+=== Timer Gate ===
+returns ones after a predetermined number of updates have elapsed
+
+=== Feedback Gate ===
+
+=== Ternary Logic Gate ===
+
+different start codons signal different types of gate
+
+
+===== MABE =====

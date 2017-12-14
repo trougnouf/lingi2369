@@ -1,0 +1,22 @@
+#Genetic Algorithms
+
+start a genepool that consists of individuals made out of random bits
+each individual is assigned a score based on how it performs on a given task
+each subsequent generation is made of surviving individuals, mutated ones, and offsprings of other individuals. Survival rate and mating selection is influenced (but not dictated) by the individual's score
+run a predetermined number of iterations or until a given score threshold is met
+
+
+
+## Application
+
+timetabling and scheduling problems
+	mixed population = move away from local optima
+engineering
+	
+	
+this applies 
+
+# Genetic programming
+
+GA work with bitstrings
+extand to program instructions!

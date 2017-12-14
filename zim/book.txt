@@ -98,4 +98,32 @@ Typically the single healthiest individual is returned, but some use-cases may r
 The goal of this example run is to "evolve an expression whose values match those of the quadratic polynomial x^{2}+x+1 in the range [-1, +1]
 
 ==== 4.1 Preparatory Steps ====
-The terminal set includes the variable x, some random constants in [-5, 5]
+|              |                                                                                                       |
+|:-------------|:------------------------------------------------------------------------------------------------------|
+| Objective    | Find program whose output matches x² + x + 1 over the range −1 ≤ x ≤ +1                               |
+| Function set | +,−, % (protected division), and *; all operating on floats                                           |
+| Terminal set | x, and constants chosen randomly between −5 and +5                                                    |
+| Fitness      | sum of absolute errors for x ∈ {−1.0, −0.9, . . . 0.9, 1.0}                                           |
+| Selection    | fitness proportionate (roulette wheel) non elitist                                                    |
+| Initial pop  | ramped half-and-half (depth 1 to 2. 50% of terminals are constants)                                   |
+| Parameters   | population size 4, 50% subtree crossover, 25% reproduction, 25% subtree mutation, no tree size limits |
+| Termination  | Individual with fitness better than 0.1 found                                                         |
+
+	(small population size to keep example manageable)
+
+
+==== 4.2 Step-by-step sample run ====
+
+=== 4.2.1 Initialisation ===
+Initial population:
+* (x + 1 ) -  0
+* 1 + ( x * x)
+* 2 + 0
+* x  * ( -1 - -2)
+
+=== 4.2.2 Fitness Evaluation ===
+We use the sum of absolute errors for x ∈ {−1.0, −0.9, . . . 0.9, 1.0}
+
+=== 4.2.3 Selection, Crossover and Mutation ===
+We select individuals probabilistically, so that the healthier programs are more likely but not guaranteed to be selected for breeding, and the weaker ones may still reproduce. (not a greedy approach)
+We copy a parent and select a random node that is replaced by a random node from the other parent.

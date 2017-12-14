@@ -1,0 +1,8 @@
+
+We would like to present an introduction to genetic programming and genetic algorithms.
+
+This field is inspired by biological evolutionary process to solve problems, either by manipulating bitstrings (GA), or a whole program's functions (GP).
+
+A popular article on the subject (GA) is "On the Origin of Circuits" written by Alan Bellows in 2007 ( https://www.damninteresting.com/on-the-origin-of-circuits/ ), its associated scientific publication is "An evolved circuit, intrinsic in silicon, entwined with physics" by Adrian Thompson. In that study, Dr Thompson applies genetic algorithsm to program a FPGA for sound recognition.
+
+"A Field Guide to Genetic Programming" by Riccardo Poli (2008) provides an overview of the field. It has been published under a free (CC) license and is available on http://www0.cs.ucl.ac.uk/staff/w.langdon/ftp/papers/poli08_fieldguide.pdf
